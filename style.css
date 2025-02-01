@@ -1,0 +1,14 @@
+#output-container {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.user {
+    color: blue;
+    font-weight: bold;
+}
+
+.assistant {
+    color: purple;
+    font-weight: bold;
+}
