@@ -20,7 +20,7 @@ async function handleSend() {
     const systemPrompt = document.getElementById('systemPromptText').value;
 
     // Get the AI language model
-    if (ai && ai.languageModel && ai.languageModel.create && promptText) {
+    if (LanguageModel?.create && promptText) {
         try {
             const outputList = document.getElementById('output');
 
@@ -42,7 +42,7 @@ async function handleSend() {
 
             // Send user input to AI and get AI response
             // console.debug(thread);
-            const session = await ai.languageModel.create({ systemPrompt: systemPrompt, initialPrompts: thread });
+            const session = await LanguageModel.create({ systemPrompt: systemPrompt, initialPrompts: thread });
             const response = await session.prompt(promptText);
 
             // Update thread with user input and AI response
