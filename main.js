@@ -42,7 +42,10 @@ async function handleSend() {
 
             // Send user input to AI and get AI response
             // console.debug(thread);
-            const session = await LanguageModel.create({ systemPrompt: systemPrompt, initialPrompts: thread });
+            if (thread.length === 0 && systemPrompt) {
+                thread.push({ role: 'system', content: systemPrompt });
+            }
+            const session = await LanguageModel.create({ initialPrompts: thread });
             const response = await session.prompt(promptText);
 
             // Update thread with user input and AI response
